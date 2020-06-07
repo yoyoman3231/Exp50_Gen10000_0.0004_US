@@ -103,7 +103,7 @@ int test_day;
 double all_max = 0;
 int all_max_solution[10000];
 double random;
-int file_num = 28;
+int file_num = 14;
 double Gbest[50];
 double all_max_tmp[50];
 double Gbest_max;
@@ -295,13 +295,13 @@ string H2M_test20[] = { "test_2013_01(2012 Q1).csv","test_2013_02(2012 Q1).csv",
 "test_2016_04(2015 Q1).csv", "test_2016_05(2015 Q1).csv", "test_2016_06(2015 Q1).csv", "test_2016_07(2016 Q1).csv", "test_2016_08(2016 Q1).csv", "test_2016_09(2016 Q1).csv", "test_2016_10(2016 Q1).csv", "test_2016_11(2016 Q1).csv", "test_2016_12(2016 Q1).csv", "test_2017_01(2016 Q1).csv", "test_2017_02(2016 Q1).csv", "test_2017_03(2016 Q1).csv", "test_2017_04(2016 Q1).csv", "test_2017_05(2016 Q1).csv", "test_2017_06(2016 Q1).csv", "test_2017_07(2017 Q1).csv", "test_2017_08(2017 Q1).csv", "test_2017_09(2017 Q1).csv", "test_2017_10(2017 Q1).csv",
 "test_2017_11(2017 Q1).csv", "test_2017_12(2017 Q1).csv", "test_2018_01(2017 Q1).csv", "test_2018_02(2017 Q1).csv", "test_2018_03(2017 Q1).csv", "test_2018_04(2017 Q1).csv", "test_2018_05(2017 Q1).csv", "test_2018_06(2017 Q1).csv", "test_2018_07(2018 Q1).csv", "test_2018_08(2018 Q1).csv", "test_2018_09(2018 Q1).csv", "test_2018_10(2018 Q1).csv", "test_2018_11(2018 Q1).csv", "test_2018_12(2018 Q1).csv", "test_2019_01(2018 Q1).csv", "test_2019_02(2018 Q1).csv", "test_2019_03(2018 Q1).csv", "test_2019_04(2018 Q1).csv", "test_2019_05(2018 Q1).csv",
 "test_2019_06(2018 Q1).csv", "test_2019_07(2019 Q1).csv", "test_2019_08(2019 Q1).csv", "test_2019_09(2019 Q1).csv", "test_2019_10(2019 Q1).csv", "test_2019_11(2019 Q1).csv", "test_2019_12(2019 Q1).csv"};
-string HH_test20[] = { "test_2013_Q1-Q2(2012 Q1).csv", "test_2013_Q3-Q4(2012 Q1).csv", "test_2014_Q1-Q2(2013 Q1).csv", "test_2014_Q3-Q4(2013 Q1).csv", "test_2015_Q1-Q2(2014 Q1).csv", "test_2015_Q3-Q4(2014 Q1).csv", "test_2016_Q1-Q2(2015 Q1).csv", "test_2016_Q3-Q4(2015 Q1).csv", "test_2017_Q1-Q2(2016 Q1).csv", "test_2017_Q3-Q4(2016 Q1).csv", "test_2018_Q1 - Q2(2017 Q1).csv", "test_2018_Q3-Q4(2017 Q1).csv" };
+string HH_test20[] = { "test_2013_Q1-Q2(2012 Q1).csv", "test_2013_Q3-Q4(2012 Q1).csv", "test_2014_Q1-Q2(2013 Q1).csv", "test_2014_Q3-Q4(2013 Q1).csv", "test_2015_Q1-Q2(2014 Q1).csv", "test_2015_Q3-Q4(2014 Q1).csv", "test_2016_Q1-Q2(2015 Q1).csv", "test_2016_Q3-Q4(2015 Q1).csv", "test_2017_Q1-Q2(2016 Q1).csv", "test_2017_Q3-Q4(2016 Q1).csv", "test_2018_Q1-Q2(2017 Q1).csv", "test_2018_Q3-Q4(2017 Q1).csv", "test_2019_Q1-Q2(2018 Q1).csv","test_2019_Q3-Q4(2018 Q1).csv" };
 string H2H_test20[] = { "test_2013_Q1-Q2(2012 Q1).csv", "test_2013_Q3-Q4(2013 Q1).csv", "test_2014_Q1-Q2(2013 Q1).csv", "test_2014_Q3-Q4(2014 Q1).csv", "test_2015_Q1-Q2(2014 Q1).csv", "test_2015_Q3-Q4(2015 Q1).csv", "test_2016_Q1-Q2(2015 Q1).csv","test_2016_Q3-Q4(2016 Q1).csv", "test_2017_Q1-Q2(2016 Q1).csv", "test_2017_Q3-Q4(2017 Q1).csv", "test_2018_Q1-Q2(2017 Q1).csv", "test_2018_Q3-Q4(2018 Q1).csv", "test_2019_Q1-Q2(2018 Q1).csv", "test_2019_Q3-Q4(2019 Q1).csv" };
 /*市值前20大測試期*/
 
 void read_file(int a) {
-	input_file.open(QQ_train20[a], ios::in);
-	cout << endl << QQ_train20[a] << endl;
+	input_file.open(HH_train20[a], ios::in);
+	cout << endl << HH_train20[a] << endl;
 	string line;
 	while (getline(input_file, line))
 	{
@@ -340,8 +340,8 @@ void read_file(int a) {
 
 void test_read_file(int a) {
 
-	test_input_file.open(QQ_test20[a], ios::in);
-	cout << endl << QQ_test20[a] << endl;
+	test_input_file.open(HH_test20[a], ios::in);
+	cout << endl << HH_test20[a] << endl;
 	string test_line;
 	while (getline(test_input_file, test_line))
 	{
@@ -847,7 +847,7 @@ void out_file(int a)
 {
 	if (Gbest_max > 0)
 	{
-		string ouput_file = "Larry_result_" + QQ_train20[a].substr(0, QQ_train20[a].length());//輸出檔案名稱
+		string ouput_file = "Larry_result_" + HH_train20[a].substr(0, HH_train20[a].length());//輸出檔案名稱
 		output_file.open(ouput_file, ios::app);//檔案輸出
 		output_file << "代數" << "," << generation << endl;
 		output_file << "粒子數" << "," << partical_num << endl;
@@ -920,7 +920,7 @@ void test_out_file(int a)
 {
 	if (Gbest_max > 0)
 	{
-		string ouput_file = "Larry_result_" + QQ_test20[a].substr(0, QQ_test20[a].length());//輸出檔案名稱
+		string ouput_file = "Larry_result_" + HH_test20[a].substr(0, HH_test20[a].length());//輸出檔案名稱
 		output_file.open(ouput_file, ios::app);//檔案輸出
 		output_file << "代數" << "," << generation << endl;//v
 		output_file << "粒子數" << "," << partical_num << endl;//v
@@ -1025,7 +1025,7 @@ void test_out_file(int a)
 
 void all_testperiod_final_result()
 {
-	string ouput_file = "Larry_US20_Q#_total_test_result.csv";//輸出檔案名稱
+	string ouput_file = "Larry_US20_H#_total_test_result.csv";//輸出檔案名稱
 	output_file.open(ouput_file, ios::app);//檔案輸出
 	output_file << "測試期區間" << "," << "test_2013_01(2012 Q1).csv - test_2019_12(2019 Q1).csv" << endl;
 	output_file << "世代數" << "," << generation << endl;
@@ -1059,7 +1059,7 @@ void all_testperiod_final_result()
 
 void all_train_prtiod_result(int a)
 {
-	string ouput_file = "Larry_US20_Q#_train_Gbest_10000_10_50_0.0004.csv";//輸出檔案名稱
+	string ouput_file = "Larry_US20_H#_train_Gbest_10000_10_50_0.0004.csv";//輸出檔案名稱
 	output_file.open(ouput_file, ios::app);
 
 	if (all_gbest_trend_ratio[a] > 0)
