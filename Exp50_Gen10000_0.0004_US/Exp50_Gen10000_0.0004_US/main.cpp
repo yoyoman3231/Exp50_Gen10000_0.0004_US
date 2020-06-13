@@ -1,4 +1,4 @@
-/*美股市值前20大DJI測試*/
+/*美股市值前20大DJI50大測試*/
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -103,7 +103,7 @@ int test_day;
 double all_max = 0;
 int all_max_solution[10000];
 double random;
-int file_num = 48;
+int file_num = 8;
 double Gbest[50];
 double all_max_tmp[50];
 double Gbest_max;
@@ -482,8 +482,8 @@ string H2H_test50[] = { "test_2016_Q1-Q2(2015 Q1).csv","test_2016_Q3-Q4(2016 Q1)
 /*市值前50大測試期*/
 
 void read_file(int a) {
-	input_file.open(Q2M_train50[a], ios::in);
-	cout << endl << Q2M_train50[a] << endl;
+	input_file.open(HH_train50[a], ios::in);
+	cout << endl << HH_train50[a] << endl;
 	string line;
 	while (getline(input_file, line))
 	{
@@ -522,8 +522,8 @@ void read_file(int a) {
 
 void test_read_file(int a) {
 
-	test_input_file.open(Q2M_test50[a], ios::in);
-	cout << endl << Q2M_test50[a] << endl;
+	test_input_file.open(HH_test50[a], ios::in);
+	cout << endl << HH_test50[a] << endl;
 	string test_line;
 	while (getline(test_input_file, test_line))
 	{
@@ -1029,7 +1029,7 @@ void out_file(int a)
 {
 	if (Gbest_max > 0)
 	{
-		string ouput_file = "Larry_result_" + Q2M_train50[a].substr(0, Q2M_train50[a].length());//輸出檔案名稱
+		string ouput_file = "Larry_result_" + HH_train50[a].substr(0, HH_train50[a].length());//輸出檔案名稱
 		output_file.open(ouput_file, ios::app);//檔案輸出
 		output_file << "代數" << "," << generation << endl;
 		output_file << "粒子數" << "," << partical_num << endl;
@@ -1102,7 +1102,7 @@ void test_out_file(int a)
 {
 	if (Gbest_max > 0)
 	{
-		string ouput_file = "Larry_result_" + Q2M_test50[a].substr(0, Q2M_test50[a].length());//輸出檔案名稱
+		string ouput_file = "Larry_result_" + HH_test50[a].substr(0, HH_test50[a].length());//輸出檔案名稱
 		output_file.open(ouput_file, ios::app);//檔案輸出
 		output_file << "代數" << "," << generation << endl;//v
 		output_file << "粒子數" << "," << partical_num << endl;//v
@@ -1207,9 +1207,9 @@ void test_out_file(int a)
 
 void all_testperiod_final_result()
 {
-	string ouput_file = "Larry_US50_Q2M_total_test_result.csv";//輸出檔案名稱
+	string ouput_file = "Larry_US50_H#_total_test_result.csv";//輸出檔案名稱
 	output_file.open(ouput_file, ios::app);//檔案輸出
-	output_file << "測試期區間" << "," << "test_2016_01(2015 Q1).csv - test_2019_12(2018 Q1).csv" << endl;
+	output_file << "測試期區間" << "," << "test_2016_Q1-Q2(2015 Q1).csv - test_2019_Q3-Q4(2018 Q1).csv" << endl;
 	output_file << "世代數" << "," << generation << endl;
 	output_file << "旋轉角度" << "," << theta << endl;
 	output_file << "粒子數" << "," << partical_num << endl;
@@ -1241,7 +1241,7 @@ void all_testperiod_final_result()
 
 void all_train_prtiod_result(int a)
 {
-	string ouput_file = "Larry_US50_Q2M_train_Gbest_10000_10_50_0.0004.csv";//輸出檔案名稱
+	string ouput_file = "Larry_US50_H#_train_Gbest_10000_10_50_0.0004.csv";//輸出檔案名稱
 	output_file.open(ouput_file, ios::app);
 
 	if (all_gbest_trend_ratio[a] > 0)
